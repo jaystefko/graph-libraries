@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataPoint, Option } from './types';
 import getData from './getData';
 import GraphD3 from './graphs/d3';
@@ -9,6 +9,10 @@ import GraphReacharts from './graphs/recharts';
 function App() {
   const [option, setOption] = useState<Option>(1);
   const [data, setData] = useState<Array<DataPoint>>([]);
+
+  useEffect(() => {
+    setData(getData(option));
+  }, []); // eslint-disable-line
 
   function onSelectChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const value = Number(e.currentTarget.value) as Option;
@@ -31,16 +35,16 @@ function App() {
         </section>
         <section>
           <div>
-            <GraphD3 data={data} />
+            <GraphD3 data={data} option={option} />
           </div>
           <div>
-            <GraphChartjs data={data} />
+            <GraphChartjs data={data} option={option} />
           </div>
           <div>
-            <GraphDygraphs data={data} />
+            <GraphDygraphs data={data} option={option} />
           </div>
           <div>
-            <GraphReacharts data={data} />
+            <GraphReacharts data={data} option={option} />
           </div>
         </section>
       </main>
