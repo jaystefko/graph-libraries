@@ -3,7 +3,6 @@ import { DataPoint, Option } from './types';
 import getData from './getData';
 import GraphD3 from './graphs/d3';
 import GraphChartjs from './graphs/chartjs';
-import GraphDygraphs from './graphs/dygraphs';
 import GraphReacharts from './graphs/recharts';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
         <section>
           <GraphD3 data={data} option={option} />
           <GraphChartjs data={data} option={option} />
-          <GraphDygraphs data={data} option={option} />
           <GraphReacharts data={data} option={option} />
         </section>
       </main>
