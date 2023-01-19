@@ -35,9 +35,10 @@ function Graph({ data, option }: Props) {
           x: {
             type: 'time',
             time: {
-              unit: 'hour',
+              unit: option === 1 ? 'hour' : 'day',
               displayFormats: {
                 hour: 'HH:mm',
+                day: 'dd.MM',
               },
             },
           },
