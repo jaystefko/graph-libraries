@@ -34,18 +34,10 @@ function App() {
           </select>
         </section>
         <section>
-          <div>
-            <GraphD3 data={data} option={option} />
-          </div>
-          <div>
-            <GraphChartjs data={data} option={option} />
-          </div>
-          <div>
-            <GraphDygraphs data={data} option={option} />
-          </div>
-          <div>
-            <GraphReacharts data={data} option={option} />
-          </div>
+          <GraphD3 data={data} option={option} />
+          <GraphChartjs data={data} option={option} />
+          <GraphDygraphs data={data} option={option} />
+          <GraphReacharts data={data} option={option} />
         </section>
       </main>
     </article>

@@ -30,7 +30,7 @@ Although will add it's numbers to this readme 4 comparison.
 # Additional info
 
 1. Huuuge; can do basically everything but is very hard because amount of options; big and heavy
-2. Almost as huge as d3, but much easier in use;
+2. Almost as huge as d3, but much easier in use; REQUIRES 2 ADDITIONAL LIBRARIES (dane-fns and adapter, date-fns could just be used as default data lib)
 3. Unknown and not known; will support be available?; smallest and lightest;
 4. Not allow to set axis labels like I want
 

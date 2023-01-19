@@ -6,7 +6,7 @@ type Props = {
 };
 
 function Graph({ data, option }: Props) {
-  return <div>{`dygraph graph with ${data.length} of data`}</div>;
+  return <div className='graphContainer'>{`dygraph graph with ${data.length} of data`}</div>;
 }
 
 export default Graph;

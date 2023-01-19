@@ -16,9 +16,8 @@ type Props = {
 };
 
 const Graph = ({ data, option }: Props) => {
-  console.log(data);
   return (
-    <div style={{ width: '100%', height: '400px', padding: '1rem' }}>
+    <div className='graphContainer'>
       <ResponsiveContainer width={1200} height='100%'>
         <AreaChart data={data}>
           <defs>

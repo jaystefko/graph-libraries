@@ -6,7 +6,7 @@ type Props = {
 };
 
 function Graph({ data, option }: Props) {
-  return <div>{`d3 graph with ${data.length} of data`}</div>;
+  return <div className='graphContainer'>{`d3 graph with ${data.length} of data`}</div>;
 }
 
 export default Graph;
