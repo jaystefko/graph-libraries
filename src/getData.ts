@@ -7,14 +7,35 @@ const DAY = 24 * HOUR;
 const WEEK = 7 * DAY;
 const MONTH = 30 * DAY;
 
-function getStep(option: Option, isB4Halve: boolean) {
+function getStep(option: Option, size: Option, isB4Halve: boolean) {
   switch (option) {
     case 1:
-      return isB4Halve ? getValue(10) * MINUTE : HOUR;
+      switch (size) {
+        case 3:
+          return isB4Halve ? getValue(10) : SECOND;
+        case 2:
+          return isB4Halve ? getValue(10) * SECOND : MINUTE;
+        default:
+          return isB4Halve ? getValue(10) * MINUTE : HOUR;
+      }
     case 2:
-      return isB4Halve ? getValue(10) * HOUR : DAY;
+      switch (size) {
+        case 3:
+          return isB4Halve ? getValue(10) * SECOND : MINUTE;
+        case 2:
+          return isB4Halve ? getValue(10) * MINUTE : HOUR;
+        default:
+          return isB4Halve ? getValue(10) * HOUR : DAY;
+      }
     default:
-      return DAY;
+      switch (size) {
+        case 3:
+          return MINUTE;
+        case 2:
+          return HOUR;
+        default:
+          return DAY;
+      }
   }
 }
 
@@ -33,7 +54,7 @@ function getValue(MAX = 100) {
   return 1 + Math.round(Math.random() * MAX);
 }
 
-function getData(option: Option) {
+function getData(option: Option, size: Option) {
   const START = new Date('2023/01/01').getTime();
   const STOP = getStop(option, START);
   const HALVE = Math.round((START + STOP) / 2);
@@ -48,7 +69,7 @@ function getData(option: Option) {
       value_1: amount,
       value_2: undefined,
     });
-    guard += getStep(option, true);
+    guard += getStep(option, size, true);
   } while (guard <= HALVE);
 
   result[result.length - 1].value_2 = amount;
@@ -60,7 +81,7 @@ function getData(option: Option) {
       value_1: undefined,
       value_2: amount,
     });
-    guard += getStep(option, false);
+    guard += getStep(option, size, false);
   } while (guard <= STOP);
 
   return result;
